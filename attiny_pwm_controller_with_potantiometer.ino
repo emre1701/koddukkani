@@ -1,36 +1,17 @@
-/*
-  Blink
-  Turns on an LED on for one second, then off for one second, repeatedly.
 
-  Most Arduinos have an on-board LED you can control. On the Uno and
-  Leonardo, it is attached to digital pin 13. If you're unsure what
-  pin the on-board LED is connected to on your Arduino model, check
-  the documentation at http://www.arduino.cc
 
-  This example code is in the public domain.
+int number=0;
 
-  modified 8 May 2014
-  by Scott Fitzgerald
- */
-int i=0;
-
-// the setup function runs once when you press reset or power the board
 void setup() {
-  // initialize digital pin 13 as an output.
+
   pinMode(0, OUTPUT);
+  pinMode(3, INPUT);
 }
 
-// the loop function runs over and over again forever
+
 void loop() {
-i=analogRead(3);
-for(i=0;i<255;i++) {
-  analogWrite(0, i);
-  delay(4);
-}
-delay(800);
-for(i=255;i>=0;i--) {
-  analogWrite(0, i);
-  delay(4);
-}
-delay(70);
+number=analogRead(3);
+number/=4;
+analogWrite(0, number);
+delay(10) // (optional)
 }
